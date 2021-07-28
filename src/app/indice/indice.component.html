@@ -1,0 +1,11 @@
+<h1>Trivial</h1>
+<ngb-carousel *ngIf="temas" class="carousel-dark">
+  <ng-template ngbSlide *ngFor="let tema of temas">
+    <a [routerLink]="['/preguntas', tema.tema ]">
+      <img class="rounded" [src]="tema.imagen" alt="*" />
+      <div class="carousel-caption">
+        <h2 class="text-danger">{{ tema.tema | uppercase }}</h2>
+      </div>
+    </a>
+  </ng-template>
+</ngb-carousel>

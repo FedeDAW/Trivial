@@ -1,0 +1,9 @@
+.rounded {
+  height: 500px;
+  width: 500px;
+  display: block;
+  margin: auto;
+}
+h2 {
+  text-shadow: 1px 1px 1px yellow;
+}
