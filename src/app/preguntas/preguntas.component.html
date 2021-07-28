@@ -1,2 +1,22 @@
 <h1>{{tema}}</h1>
-<a [routerLink]="['/indice']">De momento nada mas ;D ... volver al indice</a>
+<div class="card text-center my-4">
+  <div class="card-header"
+    [ngClass]="{'bg-success':respuestaCorrecta,'bg-danger':!respuestaCorrecta}">
+    <span *ngIf="!respuesta.length">Introduce una respuesta</span>
+    <span *ngIf="respuestaCorrecta">Respuesta correcta :)</span>
+    <span *ngIf="respuesta.length && !respuestaCorrecta">Respuesta incorrecta :(</span>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{ preguntas[preguntaActual].question.questionText }}</h5>
+    <ngb-alert type="warning" *ngIf="pista.length">
+      <span *ngFor="let letra of pistaArray" class="badge bg-primary ms-1">{{ letra | uppercase}}</span>
+    </ngb-alert>
+    <p class="card-text"><input class="form-control" type="text" [(ngModel)]="respuesta" (ngModelChange)="comprobarRespuesta()" placeholder="Introduce respuesta"></p>
+  </div>
+  <div class="card-footer text-muted">
+    <button class="btn btn-warning" (click)="getPista()">Pista</button>
+    <button class="btn" (click)="proximaPregunta()"
+      [ngClass]="{'btn-success':respuestaCorrecta,'btn-primary':!respuestaCorrecta}">Próxima pregunta</button>
+  </div>
+</div>
+<a [routerLink]="['/indice']">Volver al índice</a>
