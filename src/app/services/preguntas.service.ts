@@ -7,6 +7,6 @@ import { HttpClient } from '@angular/common/http';
 export class PreguntasService {
   constructor(private http: HttpClient) {}
   getPreguntas(tema: String) {
-    return this.http.get('assets/Quiz/' + tema + '.json');
+    return this.http.get('assets/Quiz/' + tema.toLowerCase() + '.json');
   }
 }

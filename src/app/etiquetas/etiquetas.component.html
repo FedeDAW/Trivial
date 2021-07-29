@@ -1,0 +1,6 @@
+<h1 class="my-3">Elige una etiqueta o vuelve al <a [routerLink]="['/indice']">índice</a></h1>
+
+<div class="spinner-border text-primary" role="status" *ngIf="!tags.size">
+<a [routerLink]="['/preguntas', tema, tag.key]" *ngFor="let tag of tags | keyvalue" class="btn btn-sm btn-primary m-1">
+  {{ tag.key }}<span class="badge bg-danger ms-1">{{ tag.value }}</span>
+</a>

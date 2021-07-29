@@ -8,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class IndiceComponent implements OnInit {
   temas = [
     {tema:"Cine",imagen:"assets/img/luna.png"},
-    {tema:"Miscelanea",imagen:"assets/img/tierra.png"}
+    {tema:"Miscelanea",imagen:"assets/img/tierra.png"},
+    {tema:"Television",imagen:"assets/img/television.png"}
 ];
+
   constructor() { }
 
   ngOnInit(): void {

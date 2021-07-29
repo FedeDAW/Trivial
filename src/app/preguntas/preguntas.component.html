@@ -1,4 +1,4 @@
-<h1>{{tema}}</h1>
+<h1 class="my-3">{{tema}} ({{etiqueta}})</h1>
 <div class="card text-center my-4">
   <div class="card-header"
     [ngClass]="{'bg-success':respuestaCorrecta,'bg-danger':!respuestaCorrecta}">
@@ -6,8 +6,15 @@
     <span *ngIf="respuestaCorrecta">Respuesta correcta :)</span>
     <span *ngIf="respuesta.length && !respuestaCorrecta">Respuesta incorrecta :(</span>
   </div>
+  <!-- Space bar-->
+  <p><ngb-progressbar *ngIf="preguntas" type="success" [showValue]="true" [value]="tiempo" [striped]="true" [animated]="true" [max]="preguntas[preguntaActual].question.timer"></ngb-progressbar></p>
   <div class="card-body">
-    <h5 class="card-title">{{ preguntas[preguntaActual].question.questionText }}</h5>
+    <!-- Spinner -->
+    <div class="spinner-border text-success" role="status" *ngIf="!preguntas">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <!-- Pregunta -->
+    <h5 class="card-title" *ngIf="preguntas">{{ preguntas[preguntaActual].question.questionText }}</h5>
     <ngb-alert type="warning" *ngIf="pista.length">
       <span *ngFor="let letra of pistaArray" class="badge bg-primary ms-1">{{ letra | uppercase}}</span>
     </ngb-alert>
